@@ -1,8 +1,15 @@
 use std::io;// Standard IO library
-
+use rand::Rng;// Random library imported from rand crate
 fn main() {
-    // Print a title of the game and a prompt for the user
     println!("Guess the number!");
+
+    /* thread_rng is a specific random number generation function that generates a random
+       number in the existing program thread. The number is seeded automatically by the OS
+       .get_range() is a method used to specify the range of the random numbers.
+       The range notation is start..=end with start and end being inclusive.*/
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+    println!("The secret number is: {secret_number}");
+
     println!("Please input your guess.");
 
     /* let - Used to create a variable
